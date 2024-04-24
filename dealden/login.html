@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+    <script src="indexx.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/appwrite@13.0.1"></script>
+    <script>
+        const { Client } = Appwrite;
+    </script>
+    <style>
+        body, .signin {
+            background-color: #d3d3d3;
+            font-family: 'Montserrat', sans-serif;
+            color: #000;
+            font-size: 14px;
+            letter-spacing: 1px;
+        }
+
+        .cd__main {
+            min-height: 720px;
+            position: relative;
+        }
+
+        .login {
+            position: relative;
+            height: 560px;
+            width: 405px;
+            margin: auto;
+            padding: 60px 60px;
+            background: url('https://static.vecteezy.com/system/resources/previews/000/261/043/original/vector-abstract-modern-colorful-watercolor-background.jpg') no-repeat center center #505050;
+            background-size: cover;
+            box-shadow: 0px 30px 60px -5px #000;
+        }
+
+        form {
+            padding-top: 80px;
+        }
+
+        .active {
+            border-bottom: 2px solid #1161ed;
+        }
+
+        .nonactive {
+            color: rgba(255, 255, 255, 0.2);
+        }
+
+        h2 {
+            padding-left: 12px;
+            font-size: 22px;
+            text-transform: uppercase;
+            padding-bottom: 5px;
+            letter-spacing: 2px;
+            display: inline-block;
+            font-weight: 100;
+        }
+
+        h2:first-child {
+            padding-left: 0px;
+        }
+
+        span {
+            text-transform: uppercase;
+            font-size: 12px;
+            opacity: 3.0;
+            display: inline-block;
+            position: relative;
+            top: -65px;
+            transition: all 0.5s ease-in-out;
+        }
+
+        .text {
+            border: solid gray;
+            width: 89%;
+            padding: 10px 20px;
+            display: block;
+            height: 15px;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgb(0,0,0);
+        }
+        .register-link{
+  font-size:14.5px;
+  text-align:center;
+  margin-top:20px;
+}
+.register-link p a{
+  color:#fff;
+  text-decoration:none;
+  font-weight:600;
+}
+ .btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #222222;
+            color: #ffffff;
+            text-align: center;
+            border: none;
+            border-radius: 2px;
+            cursor: pointer;
+        }
+
+
+    
+    </style>
+</head>
+<body>
+    <div class="login">
+        <h2 class="active">Sign In</h2>
+        <form id="login">
+            <input type="text" class="text" name="username" id="loginEmail" placeholder="Enter your username">
+            <span>Username</span><br><br>
+            <input type="password" class="text" name="password" id="loginPassword" placeholder="Enter your password">
+            <span>Password</span><br>
+            <input type="checkbox" id="checkbox-1-1" class="custom-checkbox" />
+            <label for="checkbox-1-1">Keep me Signed in</label>
+            <pre>ssss
+            <button class="btn">Sign In</button></pre>
+            <hr>
+            <a href="#">Forgot Password?</a>
+            <div class="register link">
+                <p>Don't have an account?
+                <a href="register.html">Register</a></p>
+                </div>
+                
+        </form>
+    </div>
+    <!-- <div id="loginForm">
+        <h2>Login</h2>
+        <form id="login">
+            <input type="email" id="loginEmail" placeholder="Email" required>
+            <input type="password" id="loginPassword" placeholder="Password" required>
+            <button type="submit">Login</button>
+        </form>
+    </div> -->
+
+</body>
+<script src="https://unpkg.com/appwrite/dist/esm/appwrite.min.js"></script>
+<script>
+    const client = new Client();
+
+client
+    .setEndpoint('https://cloud.appwrite.io/v1')
+    .setProject('6625f70be3bd35113c90');
+
+// Create an instance of the Account service
+const account = new Appwrite.Account(client);
+    // Login function
+document.getElementById('login').addEventListener('submit', function(event) {
+    event.preventDefault();
+    
+    const email = document.getElementById('loginEmail').value;
+    const password = document.getElementById('loginPassword').value;
+
+    account.createEmailSession(email, password)
+        .then(response => {
+            console.log('Logged in:', response);
+            window.location.href = '/'
+            // Handle successful login (e.g., redirect to another page)
+        })
+        .catch(error => {
+            console.error('Error logging in:', error);
+        });
+    });
+
+</script>
+
+</html>

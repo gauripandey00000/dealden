@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Data from Appwrite</title>
+    <!-- <link rel="stylesheet" href="styles.css"> Optional CSS file -->
+    <!-- <script src="https://unpkg.com/appwrite/dist/esm/appwrite.min.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/appwrite@13.0.1"></script>
+    <script>
+        const { Client } = Appwrite;
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Data from Appwrite Database</h1>
+        
+        <!-- Data container -->
+        <div id="dataContainer"></div>
+    </div>
+
+    <script>
+        // Import Appwrite
+        const client = new Appwrite.Client();
+
+        // Configure the Appwrite client
+        client
+            .setEndpoint('https://cloud.appwrite.io/v1') // Replace with your Appwrite endpoint
+            .setProject('6625f70be3bd35113c90'); // Replace with your Appwrite project ID
+
+        // Create an instance of the Databases service
+        const databases = new Appwrite.Databases(client);
+
+        // The collection ID from which to fetch the data
+        // Replace with your Appwrite collection ID
+        // console.log(collectionId)
+
+        // Function to fetch data from Appwrite Database
+        const collectionId = '66262e8d621e50972668';
+
+        function fetchData() {
+            console.log(collectionId)
+
+    // Call Appwrite to list documents from the specified collection
+    databases.listDocuments(collectionId)
+        .then(response => {
+            // Pass the fetched data to the displayData function
+            displayData(response.documents);
+        })
+        .catch(error => {
+            // Improved error handling
+            console.error('Error fetching data:', error.message);
+            // console.log("ghghhg")
+        });
+}
+
+// Function to display data in the HTML file
+function displayData(documents) {
+    // Get the container where data will be displayed
+    const dataContainer = document.getElementById('dataContainer');
+
+    // Clear existing content
+    dataContainer.innerHTML = '';
+
+    // Iterate through the documents and create HTML content
+    documents.forEach(document => {
+        // Create a div for each document
+        const div = document.createElement('div');
+
+        // Populate the div with document data (e.g., name and email fields)
+        div.innerHTML = `
+            <p>Name: ${document.name}</p>
+            <p>Email: ${document.email}</p>
+            <!-- Add more fields as needed -->
+        `;
+
+        // Append the div to the data container
+        dataContainer.appendChild(div);
+    });
+}
+
+// Fetch data when the page loads
+document.addEventListener('DOMContentLoaded', fetchData);
+    </script>
+</body>
+
+</html>

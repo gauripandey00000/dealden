@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="content-language" content="en">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Listing</title>
+    <style>
+        /* CSS styles for product listing page */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        /* Container for product listing */
+        .product-listing {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: flex-start;
+        }
+
+        /* Styles for each product card */
+        .product-card {
+            width: 200px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Styles for product images */
+        .product-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        /* Styles for product name */
+        .product-card h3 {
+            margin: 10px 0;
+            font-size: 18px;
+        }
+
+        /* Styles for product description */
+        .product-card p {
+            margin: 5px 0;
+            color: #555;
+        }
+
+        /* Styles for product price */
+        .product-card .price {
+            font-weight: bold;
+            color: #333;
+        }
+
+        /* Styles for add-to-cart button */
+        .product-card button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        /* Hover effect for add-to-cart button */
+        .product-card button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>vehicles </h1>
+    <!-- Product listing container -->
+    <div class="product-listing">
+        <!-- Product 1 -->
+        <div class="product-card">
+            <img src="vehicles1.jpg" alt="Product 1">
+            <h3>Best Car Rental Sarvice</h3>
+            <p> <address>
+                address- 
+                2D209awasvikas Hunspuram Naubasta, Uttar Pradesh 208011</address><br>
+              <contact>  contact- 8574188513 </contact><br>
+                <a href="https://maps.app.goo.gl/FiBL9gyyrk82T6xy6"
+                   class="google-maps-link"
+                   target="_blank">View on Google Maps</a>
+            </p>
+            <!---<p class="price">$10.00</p>
+            <button>Add to Cart</button>---->
+        </div>
+
+        <!-- Product 2 -->
+        <div class="product-card">
+            <img src="vehicle2.jpg" alt="Product 2">
+            <h3>Tripiez Car Rental </h3>
+            <p> <address>
+                address- 
+                107, Janta Nagar, Neemeshwar MahaMandir Society, Barra World Bank, Barra, Kanpur, Uttar Pradesh 208027</address> <br>
+               <contact> contact- 9999995568</contact>
+                </p>
+           <!----- <p class="price">$20.00</p>
+            <button>Add to Cart</button>----->
+        </div>
+
+        <!-- Product 3 -->
+        <div class="product-card">
+            <img src="vehicle3.jpg" alt="Product 3">
+            <h3>Aman Travels and Car Rental Center </h3>
+            <p> <address>
+                address- 
+                Kali Mathiya, Shastri Nagar, Kanpur, Uttar Pradesh 208005 </address><br>
+                <contact> contact- 9838622432</contact>
+
+            </p>
+            <!---<p class="price">$15.00</p>
+            <button>Add to Cart</button>--->
+        </div>
+        <!-- Product 4 -->
+        <div class="product-card">
+            <img src="vehicle4.jpg" alt="Product 4">
+            <h3>Rajput Holidays Pvt Ltd  </h3>
+            <p><address>
+                 address- 
+                F 205, Gujaini, Kanpur, Uttar Pradesh 208022</address> <br>
+               <contact> contact- 8448445561</contact>
+            </p>
+            </div>
+            <!-- Product 5 -->
+        <div class="product-card">
+            <img src="vehicle5.jpg" alt="Product 5">
+            <h3>Shri khatu shyam tour & travels </h3>
+            <p> <address>
+                address- 516 a k block, Yashoda Nagar, Kanpur, Uttar Pradesh 208011</address> <br>
+              <contact>  contact- 9140115198</contact>
+
+            </p>
+            </div>
+
+        <!-- Add more product cards as needed -->
+    </div>
+</body>
+
+</html>

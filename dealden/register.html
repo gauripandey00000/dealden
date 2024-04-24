@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <!-- <script src="indexx.js"></script> -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+        }
+
+        .registration-form {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background:url('https://image.freepik.com/free-vector/abstract-colorful-watercolor-decorative-background_1055-4898.jpg');       
+            border-radius: 5px;
+            box-shadow: 0px 30px 60px -5px #000;
+        }
+
+        .form-group {
+            padding: 10px 20px;
+            border-radius: 20px;
+            
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #000;
+            color: #ffffff;
+            text-align: center;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/appwrite@13.0.1"></script>
+    <script>
+        const { Client } = Appwrite;
+    </script>
+
+</head>
+<body>
+    <!-- <div class="registration-form">
+        <h2>Register</h2>
+        <form id="signup">
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" placeholder="Choose a username">
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="text" id="email" name="email" placeholder="Enter your email">
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" placeholder="Create a password">
+            </div>
+            <button class="btn" type="submit">Register</button>
+        </form>
+    </div> -->
+    <div class="registration-form">
+    <div id="signupForm">
+        <h2>Signup</h2>
+        <form id="signup">
+            <div class="form-group">
+                <label for="signupName">Username:</label>
+                <input type="text" id="signupName" placeholder="choose a username" required>
+            </div>
+
+            <div class="form-group">
+                <label for="signupEmail">E-mail:</label>
+                <input type="email" id="signupEmail" placeholder="choose a E-mail" required>
+            </div>
+
+            <div class="form-group">
+                <label for="signupPassword">Password</label>
+            <input type="password" id="signupPassword" placeholder="password" required>
+        </div>
+             <button class="btn" type="submit">Register</button>
+        </form>
+    </div> 
+</div>
+
+</body>
+    <script>
+        // Initialize Appwrite client
+        const client = new Client();
+
+        client
+            .setEndpoint('https://cloud.appwrite.io/v1')
+            .setProject('6625f70be3bd35113c90');
+        
+        // Create an instance of the Account service
+        const account = new Appwrite.Account(client);
+
+        // Handle form submission for signup
+        document.getElementById('signup').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const username = document.getElementById('signupName').value;
+            const email = document.getElementById('signupEmail').value;
+            const password = document.getElementById('signupPassword').value;
+
+            account.create('unique()', email, password, username)
+                .then(response => {
+                    console.log('User created:', response);
+                    // Handle successful signup (e.g., redirect to another page)
+                })
+                .catch(error => {
+                    console.error('Error creating user:', error);
+                });
+        });
+    </script>
+
+</html>

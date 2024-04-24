@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="content-language" content="en">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Listing</title>
+    <style>
+        /* CSS styles for product listing page */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        /* Container for product listing */
+        .product-listing {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: flex-start;
+        }
+
+        /* Styles for each product card */
+        .product-card {
+            width: 200px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Styles for product images */
+        .product-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        /* Styles for product name */
+        .product-card h3 {
+            margin: 10px 0;
+            font-size: 18px;
+        }
+
+        /* Styles for product description */
+        .product-card p {
+            margin: 5px 0;
+            color: #555;
+        }
+
+        /* Styles for product price */
+        .product-card .price {
+            font-weight: bold;
+            color: #333;
+        }
+
+        /* Styles for add-to-cart button */
+        .product-card button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        /* Hover effect for add-to-cart button */
+        .product-card button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>BOOKS </h1>
+    <!-- Product listing container -->
+    <div class="product-listing">
+        <!-- Product 1 -->
+        <div class="product-card">
+            <img src="book1.jpg" alt="Product 1">
+            <h3>Anuj pushtak sansaar</h3>
+            <p> <Address>
+               Address-  Shop No-31,Jageshwar Market,Govind nagar,kanpur, Kanpur, Uttar Pradesh 208006 </Address><br>
+                <Contact> contact- 9935309088 </Contact>
+            </p>
+            <!---<p class="price">$10.00</p>
+            <button>Add to Cart</button>---->
+        </div>
+
+        <!-- Product 2 -->
+        <div class="product-card">
+            <img src="book2.jpg" alt="Product 2">
+            <h3> Raja book stall</h3>
+            <p> <address>
+                Address- 
+                40/22 , naraini dharamshala, Shiwala Rd, Book Market, Parade, Kanpur, Uttar Pradesh 208001</address><br>
+                <contact>Contact- 7985556884</contact></p>
+           <!----- <p class="price">$20.00</p>
+            <button>Add to Cart</button>----->
+        </div>
+
+        <!-- Product 3 -->
+        <div class="product-card">
+            <img src="book3.jpg" alt="Product 3">
+            <h3>The book palace</h3>
+            <p> <address>
+                Address -
+                 40, 22, near Narayani Dharmshala, Book Market, Parade, Kanpur, Uttar Pradesh 208001 </address><br>
+               <contact> Contact- 7755839993</contact></p>
+            <!---<p class="price">$15.00</p>
+            <button>Add to Cart</button>--->
+        </div>
+        <!-- Product 4 -->
+        <div class="product-card">
+            <img src="book4.jpg" alt="Product 4">
+            <h3>Kishan book deepo </h3>
+            <p><address>
+                Address- 
+                Shop No.40, 22, Shiwala Rd, Book Market, Narayan Dharanshala, Parade, Kanpur, Uttar Pradesh 208001</address><br>
+                <Contact> contact- 9721450611</Contact>
+            </p>
+            </div>
+            <!-- Product 5 --
+        <div class="product-card">
+            <img src="clothes5.jpg" alt="Product 5">
+            <h3>Product 5</h3>
+            <p>Address- 
+                Complex 128/98, Kidwai Nagar, Kanpur - 208011 (Near Aastha Tower( Guest House) Opposite Fourty Shop)<br>
+                Contact-9935710191
+            </p>
+            </div>--->
+            <!---product 6--
+            <div class="product-card">
+                <img src="clothes6.jpg" alt="Product 6">
+                <h3>Product 6</h3>
+                <p>Address- 
+                  Shop No 263, Hurawali Road, Morar, Gwalior - 474006 (Near HDFC Bank & SBI Bank, Baradari Chauraha, Arya Nagar)<br>
+                  Contact-9827054886
+                </p>
+                </div>--->
+            
+
+        <!-- Add more product cards as needed -->
+    </div>
+</body>
+
+</html>

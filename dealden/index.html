@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title> DealDen | Ecommerce Website</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap"
+            rel="stylesheet">
+        <script
+            src="https://unpkg.com/appwrite/dist/esm/appwrite.min.js"></script>
+
+    </head>
+    <script src="https://cdn.jsdelivr.net/npm/appwrite@13.0.1"></script>
+    <script>
+        const { Client } = Appwrite;
+    </script>
+    <body>
+
+        <div class="header">
+            <div class="container">
+                <div class="navbar">
+                    <div class="logo">
+                        <img src="c:\Users\gauri\AppData\Local\Packages\5319275A.WhatsAppDesktop_cv1g1gvanyjgm\TempState\D7A728A67D909E714C0774E22CB806F2\WhatsApp Image 2024-04-24 at 10.16.33_6419c673.jpg" width="125p">
+                    </div>
+                    <nav>
+                        <ul id="menuItems">
+                            <li> <a href>Products</a></li>
+                            <li> <a
+                                    href="C:\Users\gauri\OneDrive\Desktop\dealden\help.html">help</a></li>
+                            <li> <a href>Contact</a></li>
+                            <li> <a href="Account.html">Account</a></li>
+                            <li><a href="login.html" class="btn"
+                                    id="loginButton">login</a></li>
+                        </ul>
+                        <img
+                            src="shopping-bag.png"
+                            width="30px" height="30px">
+                        <img
+                            src="C:\Users\gauri\OneDrive\Desktop\html\menu-icon.html.png"
+                            class="menu-i" onclick="menutoggle()">
+                    </nav>
+
+                </div>
+                <div class="row">
+                    <div class="col-2">
+                        <h1> Dealden </h1>
+                        <h2>Where Goods Find New Homes!</h2>
+                        <!-- {% %} -->
+                        <a href="/login.html" class="btn" id="Rent-button"> RENT NOW &#8594;</a>
+                    </div>
+                    <div class="col-2">
+                        <img
+                            src="1713107506117.png">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-------- featured categories------->
+        <div class="Categories">
+            <div class="small-container">
+                <div class="row">
+                    <div class="col-3">
+                        <img
+                            src="https://i.pinimg.com/564x/4b/bb/7f/4bbb7fb2a96d2c2d50ef5a8f66ac3a0a.jpg">
+                    </div>
+                    <div class="col-3">
+                        <img
+                            src="LTTGIRLS.jpeg">
+                    </div>
+                    <div class="col-3">
+                        <img
+                            src="https://i.pinimg.com/564x/4c/c7/47/4cc74796287ef30a66c009abe4a65e1d.jpg">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!----footer---->
+        <div class="footer">
+            <div class="container">
+                <div class="footer-col-1">
+                    <div class="row">
+                        <img src>
+                        <p> our purpose is to sustainably make the pleasure and
+                            benefits of renting products accessible to many.</p>
+                    </div>
+                    <div class="footer-col-2">
+                        <h3> useful Links</h3>
+                        <ul>
+                            <li> coupons </li>
+                            <li> help </li>
+                            <li> return policy </li>
+                            <li> join affiliate </li>
+                        </ul>
+                        <div class="footer-col-3">
+                            <h3> follow us </h3>
+                            <ul>
+                                <li> facebook </li>
+                                <li> instagram </li>
+                                <li> twitter </li>
+                                <li> youtube </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--------js for toggle menu------->
+
+        <script>
+    var menuItems= document.getElementById("menuItems");
+
+    menuItems.style.maxHeight ="0px";
+
+    function menutoggle(){
+        if(menuItems.style.maxHeight =="0px")
+        {
+            menuItems.style.maxHeight = "200px";
+        }
+        else
+        {
+            menuItems.style.maxHeight = "0px";
+        }
+    }
+</script>
+<script>
+        const client = new Client();
+
+    client
+        .setEndpoint('https://cloud.appwrite.io/v1')
+        .setProject('6625f70be3bd35113c90');
+
+// Create an instance of the Account service
+const account = new Appwrite.Account(client);
+    async function checkUserLoggedIn() {
+    const aTag = document.getElementById('Rent-button');
+    try {
+        const user = await account.get();
+        aTag.href = "rent.html"
+        // User is logged in, set button text to "Logout"
+
+        document.getElementById('loginButton').innerText = 'Logout';
+    } catch (error) {
+        // User is not logged in, set button text to "Login"
+        aTag.href = "login.html"
+        document.getElementById('loginButton').innerText = 'Login';
+    }
+}
+
+// Function to log out the user
+async function logoutUser() {
+    try {
+        await account.deleteSession('current');
+        // Successfully logged out, refresh the button text
+        document.getElementById('loginButton').innerText = 'Login';
+        alert('Successfully logged out!');
+    } catch (error) {
+        console.error('Error logging out:', error);
+        alert('Error logging out.');
+    }
+}
+
+// Set up the button click event
+document.getElementById('loginButton').addEventListener('click', async () => {
+    const button = document.getElementById('loginButton');
+    if (button.innerText === 'Logout') {
+        // User wants to log out
+        await logoutUser();
+    } else {
+        // Redirect the user to login page or perform login actions
+        // Update the URL to the login page or write your own login logic
+        window.location.href = '/login';
+    }
+});
+
+// Check user authentication status on page load
+checkUserLoggedIn();
+</script>
+</body>
+</html>

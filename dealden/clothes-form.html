@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Clothes Details Form</title>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        background: linear-gradient(to bottom, hsl(240, 6%, 94%), #f8f6f8ee);
+        /* Background will blend from orange to pink */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .content {
+        text-align: center;
+        color: rgb(250, 247, 247);
+        font-size: 24px;
+        padding: 20px;
+        border-radius: 5px;
+        background: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+    }
+</style>
+
+
+
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #121111;
+    }
+
+    .container {
+        max-width: 600px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    form {
+        display: grid;
+        grid-gap: 10px;
+    }
+
+    label {
+        font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="file"],
+    textarea {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #0b0b0b;
+        border-radius: 5px;
+        box-sizing: border-box;
+    }
+
+    textarea {
+        resize: vertical;
+    }
+
+    input[type="submit"] {
+        padding: 10px;
+        background-color: #333;
+        color: #fbf8f8;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+        background-color: #555;
+    }
+</style>
+</head>
+<body>
+  
+    <div class="container">
+        <h1>Clothes Details Form</h1>
+        
+        <style>
+           
+            body {
+                
+    background-size: cover;
+    background-color: #505050;
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+                background-color: #141313;
+            }
+        
+            .container {
+                max-width: 600px;
+                margin: 20px auto;
+                padding: 20px;
+                background: linear-gradient(to bottom, hsl(190, 37%, 97%), #0732c0b9);
+        background-color: #0b0b0b;
+                border-radius: 5px;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            }
+        
+            h1 {
+                text-align: center;
+                margin-bottom: 20px;
+            }
+        
+            form {
+                display: grid;
+                grid-gap: 10px;
+            }
+        
+            label {
+                font-weight: bold;
+            }
+        
+            input[type="text"],
+            input[type="file"],
+            textarea {
+                width: 100%;
+                padding: 8px;
+                border: 1px solid #020202;
+                border-radius: 5px;
+                box-sizing: border-box;
+            }
+        
+            textarea {
+                resize: vertical;
+            }
+        
+            input[type="submit"] {
+                padding: 10px;
+                background-color: #333;
+                color: #fff;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+        
+            input[type="submit"]:hover {
+                background-color: #555;
+            }
+        </style>
+        <form action="#" method="POST">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="description">Description:</label>
+            <textarea id="description" name="description" rows="5" required></textarea>
+
+            <label for="price">Price:</label>
+            <input type="text" id="price" name="price" required>
+
+<label for="size">Size:</label>
+            <select id="size" name="size">
+                <option value="s">Small</option>
+                <option value="m">Medium</option>
+                <option value="l">Large</option>
+                <option value="xl">Extra Large</option>
+            </select>
+
+            <label for="color">Color:</label>
+            <input type="text" id="color" name="color" required>
+
+            <label for="image">Image:</label>
+            <input type="file" id="image" name="image" accept="image/*" required>
+
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+</body>

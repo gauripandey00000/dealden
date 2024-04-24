@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+
+<html>
+<style>
+input[type=text], select {
+  width: 50%;
+  padding: 12px 12px;
+  margin: 10px 0;
+margin-left:3px;
+ display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 50%;
+  background-color: #222222;
+  color: white;
+  padding: 12px 20px;
+  margin: 5px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  
+}
+
+input[type=submit]:hover {
+  background-color:#a300a3;
+}
+
+div {
+ position: relative;
+ margin: 0 auto;
+ text-align: center;
+  border-radius: 50px;
+  background: url('https://static.vecteezy.com/system/resources/previews/000/261/043/original/vector-abstract-modern-colorful-watercolor-background.jpg');
+  padding: 50px 50px;
+  width:50%;
+ box-shadow: 0px 30px 60px -5px #000;
+  background-size: cover;
+
+
+}
+textarea {
+  width: 50%;
+  height: 50px;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  font-size: 16px;
+  resize: none;
+}
+</style>
+<script src="https://cdn.jsdelivr.net/npm/appwrite@13.0.1"></script>
+    <script>
+        const { Client } = Appwrite;
+    </script>
+    <script src="https://unpkg.com/appwrite/dist/esm/appwrite.min.js"></script>
+
+<body>
+
+
+<div>
+<h2><strong>View And Edit Profile</strong></h2>
+
+  <form id="profileForm">
+    <label for="fname">First Name</label>
+    <input type="text" id="fname" name="firstname" placeholder="Your name.."><br>
+
+    <label for="lname">Last Name</label>
+    <input type="text" id="lname" name="lastname" placeholder="Your last name.."><br>
+    
+     <label for="Contact">Contact No.</label>
+     <!-- <input type="text" id="contact" name="contact"  required> -->
+    <input type="text" id="Contact" name="contact" placeholder="Your phone no."  maxlength="10"><br>
+   <label for="Email">Email Id. <label>
+      <input type="text" id="Email" name="Email" placeholder="Your Email id.."><br>
+
+
+      <textarea> bio..</textarea>
+  
+    <input type="submit" value="Submit">
+  </form>
+</div>
+      
+    </select>
+
+</body>
+<script>
+  // Create a client instance
+  const client = new Appwrite.Client();
+
+// Configure the Appwrite client
+client
+    .setEndpoint('https://cloud.appwrite.io/v1') // Replace with your Appwrite endpoint
+    .setProject('6625f70be3bd35113c90');
+
+    const headers = {
+    'X-Appwrite-Project': client.config.project,
+    'X-Appwrite-Key': 'd22f33bffc6939e3ffac83704b6dc14eebb8cbeedd8a7c8776472d1cc75aae3a64d2077b7b229ec247a734806a6333f6e3c48e742489c1fadf85ef12d3b8638b3bf1620651105ffd054aac840474ed1b29f4f2a33e05af1a9b1f723f2d083cc1dea29c99737cc8acb6d90a5c073de41fb978fc2e2e35077d1e465f4b9d4c5079' // Add your API key here
+};
+
+// const databases = new sdk.Databases(client, headers);
+
+
+// Create an instance of the Databases service
+const database = new Appwrite.Databases(client, headers);
+
+// Collection ID for user profile data
+// const collectionId = '66262e8d621e50972668'; // Replace with your Appwrite collection ID
+
+// Function to handle form submission
+document.getElementById("profileForm").addEventListener("submit", async function(event) {
+    event.preventDefault();
+    
+    // Get form values
+    const First_name = document.getElementById("fname").value;
+    const Last_name = document.getElementById("lname").value;
+
+    const E_mail = document.getElementById("Email").value;
+    const contact = document.getElementById("Contact").value;
+    
+    // Create a user profile
+    try {
+        const response = await database.createDocument(
+            "66262e7f8a1e64e00d25", // Update with your database ID
+            "66262e8d621e50972668", // Update with your collection ID
+            Appwrite.ID.unique(),
+            {
+                First_Name: First_name,
+                Last_Name: Last_name,
+                E_mail: E_mail,
+                contact: contact,
+                
+            }
+        );
+        
+        // Handle successful submission
+        alert("User profile created successfully!");
+    } catch (error) {
+        // Handle error
+        console.error("Error creating user profile:", error);
+        alert("An error occurred while creating the user profile.");
+    }});
+</script>
+</html>
